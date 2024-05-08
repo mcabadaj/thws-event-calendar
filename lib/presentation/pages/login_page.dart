@@ -1,35 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thws_event_calendar/logic/login/login_bloc.dart';
 import 'package:thws_event_calendar/presentation/widgets/login_form.dart';
 
-class LoginPage extends StatefulWidget {
+import '../../repositories/authentication/authentication_repository.dart';
+
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  bool shouldRemember = false;
+  static Route<void> route() {
+    return MaterialPageRoute<void>(builder: (_) => const LoginPage());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Form(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Login Page'),
-              const UsernameRow(),
-              const PasswordRow(),
-              const RememberMeRow(),
-              FilledButton(
-                onPressed: () => {},
-                child: const Text('Login'),
-              ),
-            ],
-          ),
-        ),
+        child: BlocProvider(
+            create: (context) {
+              return LoginBloc(
+                  authenticationRepository:
+                      RepositoryProvider.of<AuthenticationRepository>(context));
+            },
+            child: LoginForm()),
       ),
     );
   }

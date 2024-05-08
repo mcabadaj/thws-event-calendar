@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:thws_event_calendar/presentation/pages/login_page.dart';
+import 'package:system_theme/system_theme.dart';
 
-void main() {
+import 'app.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemTheme.fallbackColor = Colors.orange.shade600;
+  await SystemTheme.accentColor.load();
   runApp(const MainApp());
 }
 
@@ -10,12 +15,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: LoginPage(),
-        ),
-      ),
-    );
+    return const App();
   }
 }
