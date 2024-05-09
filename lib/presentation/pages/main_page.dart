@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thws_event_calendar/logic/authentication/authentication_bloc.dart';
 
+import '../widgets/app_menu.dart';
+
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
   static Route<void> route() {
@@ -12,11 +14,9 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Main Page'),
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {},
-          )),
+        title: const Text('Main Page'),
+      ),
+      drawer: const AppMenu(),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
