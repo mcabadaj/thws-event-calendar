@@ -5,8 +5,8 @@
 import FlutterMacOS
 import Foundation
 
-import system_theme
+import shared_preferences_foundation
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  SystemThemePlugin.register(with: registry.registrar(forPlugin: "SystemThemePlugin"))
+  SharedPreferencesPlugin.register(with: registry.registrar(forPlugin: "SharedPreferencesPlugin"))
 }
