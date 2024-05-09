@@ -147,30 +147,25 @@ class _PasswordRow extends StatelessWidget {
   }
 }
 
-class _RememberMeRow extends StatefulWidget {
+class _RememberMeRow extends StatelessWidget {
   const _RememberMeRow({
     super.key,
   });
 
   @override
-  State<_RememberMeRow> createState() => _RememberMeRowState();
-}
-
-class _RememberMeRowState extends State<_RememberMeRow> {
-  bool shouldRemember = false;
-
-  @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      const Text('Remember me:'),
-      Checkbox(
-        value: shouldRemember,
-        onChanged: (val) => setState(
-          () {
-            shouldRemember = val!;
-          },
-        ),
-      ),
-    ]);
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const Text('Log me in automatically'),
+          Checkbox(
+            value: state is AutologinChanged ? state.autologin : false,
+            onChanged: (value) => context.read<LoginBloc>().add(
+                  UpdateAutologin(value ?? false),
+                ),
+          ),
+        ]);
+      },
+    );
   }
 }

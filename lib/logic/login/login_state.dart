@@ -13,3 +13,9 @@ class LoginFailure extends LoginState {
 
   LoginFailure(this.message);
 }
+
+class AutologinChanged extends LoginState {
+  final bool autologin;
+
+  AutologinChanged(this.autologin);
+}

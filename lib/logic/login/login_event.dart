@@ -14,3 +14,9 @@ class ValidateLogin extends LoginEvent {
 
   const ValidateLogin(this.username, this.password);
 }
+
+class UpdateAutologin extends LoginEvent {
+  final bool autologin;
+
+  const UpdateAutologin(this.autologin);
+}

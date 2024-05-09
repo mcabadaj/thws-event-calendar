@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:logger/logger.dart';
 
 import '../../repositories/authentication/authentication_repository.dart';
 import '../../repositories/user/user.dart';
@@ -9,6 +10,8 @@ import '../../repositories/user/user_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
+
+Logger _logger = Logger();
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
@@ -46,9 +49,13 @@ class AuthenticationBloc
       Emitter<AuthenticationState> emit) async {
     switch (event.status) {
       case AuthenticationStatus.unauthenticated:
+        _logger.i('Unauthenticated');
         return emit(const AuthenticationState.unauthenticated());
       case AuthenticationStatus.authenticated:
-        final user = _userRepository.user;
+        final user = await _userRepository.getUser();
+        _logger.i(user != null
+            ? 'Authenticating as ${user.name}'
+            : 'Unauthenticated');
         return emit(user != null
             ? AuthenticationState.authenticated(user)
             : const AuthenticationState.unauthenticated());
