@@ -4,9 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:logger/logger.dart';
 
-import '../../repositories/authentication/authentication_repository.dart';
-import '../../repositories/user/user.dart';
-import '../../repositories/user/user_repository.dart';
+import '../../data/models/user.dart';
+import '../../data/repositories/authentication_repository.dart';
+import '../../data/repositories/user_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

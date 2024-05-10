@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'user.dart';
+import '../models/user.dart';
 
 class UserRepository {
   User? _user;

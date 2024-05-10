@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import '../user/user.dart';
-import '../user/user_repository.dart';
+import '../models/user.dart';
+import 'user_repository.dart';
 
 enum AuthenticationStatus { unknown, authenticated, unauthenticated }
 

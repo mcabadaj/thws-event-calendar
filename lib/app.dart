@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'data/repositories/authentication_repository.dart';
+import 'data/repositories/user_repository.dart';
 import 'logic/authentication/authentication_bloc.dart';
 import 'presentation/pages/login_page.dart';
 import 'presentation/pages/main_page.dart';
 import 'presentation/pages/splash_page.dart';
-import 'repositories/authentication/authentication_repository.dart';
-import 'repositories/user/user_repository.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

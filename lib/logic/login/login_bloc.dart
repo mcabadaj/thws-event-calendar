@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../repositories/authentication/authentication_repository.dart';
+import '../../data/repositories/authentication_repository.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

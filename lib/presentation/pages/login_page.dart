@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thws_event_calendar/logic/login/login_bloc.dart';
 import 'package:thws_event_calendar/presentation/widgets/login_form.dart';
 
-import '../../repositories/authentication/authentication_repository.dart';
+import '../../data/repositories/authentication_repository.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
